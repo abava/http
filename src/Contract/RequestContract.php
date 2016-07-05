@@ -16,72 +16,86 @@ interface RequestContract extends ServerRequestInterface
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withCookieParams(array $cookies): RequestContract;
+    public function withCookieParams(array $cookies);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withQueryParams(array $query): RequestContract;
+    public function withQueryParams(array $query);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withUploadedFiles(array $uploadedFiles): RequestContract;
+    public function withUploadedFiles(array $uploadedFiles);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withParsedBody($data): RequestContract;
+    public function withParsedBody($data);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withAttribute($name, $value): RequestContract;
+    public function withAttribute($name, $value);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withoutAttribute($name): RequestContract;
+    public function withoutAttribute($name);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withRequestTarget($requestTarget): RequestContract;
+    public function withRequestTarget($requestTarget);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withMethod($method): RequestContract;
+    public function withMethod($method);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withUri(UriInterface $uri, $preserveHost = false): RequestContract;
+    public function withUri(UriInterface $uri, $preserveHost = false);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withProtocolVersion($version): RequestContract;
+    public function withProtocolVersion($version);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withHeader($name, $value): RequestContract;
+    public function withHeader($name, $value);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withAddedHeader($name, $value): RequestContract;
+    public function withAddedHeader($name, $value);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withoutHeader($name): RequestContract;
+    public function withoutHeader($name);
 
     /**
      * {@inheritdoc}
+     * @return RequestContract
      */
-    public function withBody(StreamInterface $body): RequestContract;
+    public function withBody(StreamInterface $body);
 
 }

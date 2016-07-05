@@ -23,32 +23,38 @@ interface ResponseContract extends ResponseInterface
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withStatus($code, $reasonPhrase = ''): ResponseContract;
+    public function withStatus($code, $reasonPhrase = '');
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withProtocolVersion($version): ResponseContract;
+    public function withProtocolVersion($version);
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withHeader($name, $value): ResponseContract;
+    public function withHeader($name, $value);
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withAddedHeader($name, $value): ResponseContract;
+    public function withAddedHeader($name, $value);
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withoutHeader($name): ResponseContract;
+    public function withoutHeader($name);
 
     /**
      * {@inheritdoc}
+     * @return ResponseContract
      */
-    public function withBody(StreamInterface $body): ResponseContract;
+    public function withBody(StreamInterface $body);
 
 }
