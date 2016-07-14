@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http\Contract;
+namespace Abava\Http\Contract;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
@@ -9,7 +9,7 @@ use Psr\Http\Message\UriInterface;
 /**
  * Interface RequestContract
  *
- * @package Venta\Http\Contract
+ * @package Abava\Http\Contract
  */
 interface RequestContract extends ServerRequestInterface
 {

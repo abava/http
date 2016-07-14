@@ -5,8 +5,8 @@ class EmitterTest extends PHPUnit_Framework_TestCase
     
     public function testCreateEmitterInstance()
     {
-        $emitter = new \Venta\Http\Emitter();
-        $this->assertInstanceOf(\Venta\Http\Contract\EmitterContract::class, $emitter);
+        $emitter = new \Abava\Http\Emitter();
+        $this->assertInstanceOf(\Abava\Http\Contract\EmitterContract::class, $emitter);
     }
 
 }

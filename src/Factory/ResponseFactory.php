@@ -1,14 +1,14 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http\Factory;
+namespace Abava\Http\Factory;
 
 use Psr\Http\Message\StreamInterface;
-use Venta\Http\Contract\ResponseContract;
-use Venta\Http\Response;
+use Abava\Http\Contract\ResponseContract;
+use Abava\Http\Response;
 
 /**
  * Class ResponseFactory
- * @package Venta\Framework\Http\Factory
+ * @package Abava\Framework\Http\Factory
  */
 class ResponseFactory
 {
@@ -28,7 +28,7 @@ class ResponseFactory
     public function __construct(string $responseContractImplementingClassname = Response::class)
     {
         if (!is_subclass_of($responseContractImplementingClassname, ResponseContract::class, true)) {
-            throw new \InvalidArgumentException('Provided classname must implement Venta\Http\Contract\ResponseContract');
+            throw new \InvalidArgumentException('Provided classname must implement Abava\Http\Contract\ResponseContract');
         }
         $this->responseClass = $responseContractImplementingClassname;
     }

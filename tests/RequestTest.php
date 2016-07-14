@@ -8,8 +8,8 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
     public function testCreateNewRequestInstance()
     {
-        $request = new \Venta\Http\Request();
-        $this->assertInstanceOf(\Venta\Http\Contract\RequestContract::class, $request);
+        $request = new \Abava\Http\Request();
+        $this->assertInstanceOf(\Abava\Http\Contract\RequestContract::class, $request);
     }
 
 }

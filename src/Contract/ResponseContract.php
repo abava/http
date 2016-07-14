@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http\Contract;
+namespace Abava\Http\Contract;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
@@ -8,7 +8,7 @@ use Psr\Http\Message\StreamInterface;
 /**
  * Interface ResponseContract
  *
- * @package Venta\Http\Contract
+ * @package Abava\Http\Contract
  */
 interface ResponseContract extends ResponseInterface
 {

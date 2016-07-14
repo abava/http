@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http\Factory;
+namespace Abava\Http\Factory;
 
 use Zend\Diactoros\ServerRequestFactory;
 

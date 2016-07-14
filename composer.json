@@ -1,6 +1,6 @@
 {
-    "name": "ventaframework/http",
-    "description": "Venta Framework Container package",
+    "name": "abava/http",
+    "description": "The Abava Container package",
     "authors": [
         {
             "name": "Konstantins Zukovs",
@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Venta\\Http\\": "src/"
+            "Abava\\Http\\": "src/"
         }
     },
     "minimum-stability": "dev",

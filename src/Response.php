@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http;
+namespace Abava\Http;
 
-use Venta\Http\Contract\ResponseContract;
+use Abava\Http\Contract\ResponseContract;
 
 /**
  * Class Response
  *
- * @package Venta\Http
+ * @package Abava\Http
  */
 class Response extends \Zend\Diactoros\Response implements ResponseContract
 {

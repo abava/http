@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Venta\Http;
+namespace Abava\Http;
 
-use Venta\Http\Contract\RequestContract;
+use Abava\Http\Contract\RequestContract;
 use Zend\Diactoros\ServerRequest;
 
 /**
  * Class Request
  *
- * @package Venta\Http
+ * @package Abava\Http
  */
 class Request extends ServerRequest implements RequestContract {}
