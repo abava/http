@@ -2,7 +2,7 @@
 
 namespace Abava\Http;
 
-use Abava\Http\Contract\ResponseContract;
+use Abava\Http\Contract\Response as ResponseContract;
 
 /**
  * Class Response
@@ -11,7 +11,6 @@ use Abava\Http\Contract\ResponseContract;
  */
 class Response extends \Zend\Diactoros\Response implements ResponseContract
 {
-
     /**
      * {@inheritdoc}
      */

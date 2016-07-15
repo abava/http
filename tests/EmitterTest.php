@@ -2,11 +2,11 @@
 
 class EmitterTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function testCreateEmitterInstance()
     {
         $emitter = new \Abava\Http\Emitter();
-        $this->assertInstanceOf(\Abava\Http\Contract\EmitterContract::class, $emitter);
+        $this->assertInstanceOf(\Abava\Http\Contract\Emitter::class, $emitter);
     }
 
 }

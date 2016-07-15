@@ -2,56 +2,37 @@
 
 namespace Abava\Http\Factory;
 
-use Psr\Http\Message\StreamInterface;
-use Abava\Http\Contract\ResponseContract;
+use Abava\Http\Contract\Response as ResponseContract;
 use Abava\Http\Response;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * Class ResponseFactory
+ *
  * @package Abava\Framework\Http\Factory
  */
 class ResponseFactory
 {
-
-    /**
-     * Response classname to use
-     *
-     * @var string
-     */
-    protected $responseClass;
-
-    /**
-     * ResponseFactory constructor.
-
-     * @param string $responseContractImplementingClassname
-     */
-    public function __construct(string $responseContractImplementingClassname = Response::class)
-    {
-        if (!is_subclass_of($responseContractImplementingClassname, ResponseContract::class, true)) {
-            throw new \InvalidArgumentException('Provided classname must implement Abava\Http\Contract\ResponseContract');
-        }
-        $this->responseClass = $responseContractImplementingClassname;
-    }
-
     /**
      * Creates new Response instance
      *
+     * @param int $code
+     * @param array $headers
      * @param StreamInterface|null $stream
-     * @param int                  $status
-     * @param array                $headers
-     * @return ResponseContract
+     * @return ResponseContract|Response
+     * @internal param int $status
      */
-    public function make(StreamInterface $stream = null, int $status = 200, array $headers = []): ResponseContract
+    public function createResponse($code = 200, array $headers = [], StreamInterface $stream = null) : ResponseContract
     {
-        return new $this->responseClass($stream ?: 'php://memory', $status, $headers);
+        return new Response($stream ?: 'php://memory', $code, $headers);
     }
 
     /**
      * Returns new Response Instance w/o any arguments
      *
-     * @return ResponseContract
+     * @return Response
      */
-    public function new(): ResponseContract
+    public function new(): Response
     {
         return $this->make();
     }
@@ -60,12 +41,12 @@ class ResponseFactory
      * Helper function for redirect response
      *
      * @param string $url
-     * @param int    $status
+     * @param int $status
      * @return ResponseContract
      */
     public function redirect(string $url, int $status = 302): ResponseContract
     {
-        return $this->make(null, $status, ['location' => $url]);
+        return $this->createResponse($status, ['location' => $url]);
     }
 
     // todo Add helper methods, e.g. RedirectResponse, JsonResponse, etc.

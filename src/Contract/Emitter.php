@@ -9,4 +9,6 @@ use Zend\Diactoros\Response\EmitterInterface;
  *
  * @package Abava\Http\Contract
  */
-interface EmitterContract extends EmitterInterface {}
+interface Emitter extends EmitterInterface
+{
+}

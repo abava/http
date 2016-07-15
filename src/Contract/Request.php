@@ -11,90 +11,90 @@ use Psr\Http\Message\UriInterface;
  *
  * @package Abava\Http\Contract
  */
-interface RequestContract extends ServerRequestInterface
+interface Request extends ServerRequestInterface
 {
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withCookieParams(array $cookies);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withQueryParams(array $query);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withUploadedFiles(array $uploadedFiles);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withParsedBody($data);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withAttribute($name, $value);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withoutAttribute($name);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withRequestTarget($requestTarget);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withMethod($method);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withUri(UriInterface $uri, $preserveHost = false);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withProtocolVersion($version);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withHeader($name, $value);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withAddedHeader($name, $value);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withoutHeader($name);
 
     /**
      * {@inheritdoc}
-     * @return RequestContract
+     * @return Request
      */
     public function withBody(StreamInterface $body);
 

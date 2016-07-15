@@ -2,7 +2,7 @@
 
 namespace Abava\Http;
 
-use Abava\Http\Contract\RequestContract;
+use Abava\Http\Contract\Request as RequestContract;
 use Zend\Diactoros\ServerRequest;
 
 /**
@@ -10,4 +10,6 @@ use Zend\Diactoros\ServerRequest;
  *
  * @package Abava\Http
  */
-class Request extends ServerRequest implements RequestContract {}
+class Request extends ServerRequest implements RequestContract
+{
+}

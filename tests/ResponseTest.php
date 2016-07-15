@@ -12,7 +12,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
         $response = new \Abava\Http\Response();
         $this->assertEmpty($response->getBody()->__toString());
         $result = $response->append('abc');
-        $this->assertInstanceOf(\Abava\Http\Contract\ResponseContract::class, $result);
+        $this->assertInstanceOf(\Abava\Http\Contract\Response::class, $result);
         $this->assertSame($response, $result);
         $this->assertSame($response->getBody(), $result->getBody());
         $this->assertContains('abc', $response->getBody()->__toString());

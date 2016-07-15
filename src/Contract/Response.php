@@ -10,50 +10,50 @@ use Psr\Http\Message\StreamInterface;
  *
  * @package Abava\Http\Contract
  */
-interface ResponseContract extends ResponseInterface
+interface Response extends ResponseInterface
 {
 
     /**
      * Writes provided string to response body stream
      *
      * @param string $body
-     * @return ResponseContract
+     * @return Response
      */
-    public function append(string $body): ResponseContract;
+    public function append(string $body): Response;
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withStatus($code, $reasonPhrase = '');
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withProtocolVersion($version);
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withHeader($name, $value);
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withAddedHeader($name, $value);
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withoutHeader($name);
 
     /**
      * {@inheritdoc}
-     * @return ResponseContract
+     * @return Response
      */
     public function withBody(StreamInterface $body);
 
