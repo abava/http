@@ -19,8 +19,7 @@ class ResponseFactory
      * @param int $code
      * @param array $headers
      * @param StreamInterface|null $stream
-     * @return ResponseContract|Response
-     * @internal param int $status
+     * @return ResponseContract
      */
     public function createResponse($code = 200, array $headers = [], StreamInterface $stream = null) : ResponseContract
     {
@@ -34,7 +33,7 @@ class ResponseFactory
      */
     public function new(): Response
     {
-        return $this->make();
+        return $this->createResponse();
     }
 
     /**

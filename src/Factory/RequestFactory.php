@@ -8,7 +8,7 @@ use Zend\Diactoros\ServerRequestFactory;
 /**
  * Class RequestFactory
  */
-abstract class RequestFactory extends ServerRequestFactory
+class RequestFactory extends ServerRequestFactory
 {
     /**
      * todo: remove if \Zend\Diactoros\ServerRequestFactory implements PSR-16
