@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Contract;
+namespace Venta\Http\Contract;
 
 use Zend\Diactoros\Response\JsonResponse;
 
 /**
  * Interface JsonResponseFactory
  *
- * @package Abava\Http\Contract
+ * @package Venta\Http\Contracts
  */
 interface JsonResponseFactory
 {
@@ -24,5 +24,6 @@ interface JsonResponseFactory
         $data,
         $status = 200,
         array $headers = [],
-        $encodingOptions = JsonResponse::DEFAULT_JSON_FLAGS): Response;
+        $encodingOptions = JsonResponse::DEFAULT_JSON_FLAGS
+    ): Response;
 }

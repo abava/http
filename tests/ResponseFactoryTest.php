@@ -5,48 +5,24 @@ use PHPUnit\Framework\TestCase;
 class ResponseFactoryTest extends TestCase
 {
     /**
-     * @var \Abava\Http\Factory\ResponseFactory
+     * @var \Venta\Http\Factory\ResponseFactory
      */
     protected $factory;
 
     public function setUp()
     {
-        $this->factory = new \Abava\Http\Factory\ResponseFactory();
+        $this->factory = new \Venta\Http\Factory\ResponseFactory();
     }
 
     /**
      * @test
      */
-    public function implementsResponseFactoryContract()
+    public function canCreateJsonResponse()
     {
-        $this->assertInstanceOf(\Abava\Http\Contract\ResponseFactory::class, $this->factory);
-    }
-
-    /**
-     * @test
-     */
-    public function canCreateResponse()
-    {
-        $response = $this->factory->createResponse();
-        $this->assertInstanceOf(\Abava\Http\Response::class, $response);
-        $this->assertSame($response->getStatusCode(), 200);
-    }
-
-    /**
-     * @test
-     */
-    public function canCreateResponseWithStatus()
-    {
-        $response = $this->factory->createResponse(500);
-        $this->assertSame($response->getStatusCode(), 500);
-    }
-
-    /**
-     * @test
-     */
-    public function implementsRedirectResponseFactoryContract()
-    {
-        $this->assertInstanceOf(\Abava\Http\Contract\RedirectResponseFactory::class, $this->factory);
+        $data = ['foo' => 'bar'];
+        $response = $this->factory->createJsonResponse($data);
+        $this->assertInstanceOf(\Venta\Http\JsonResponse::class, $response);
+        $this->assertJsonStringEqualsJsonString(json_encode($data), $response->getBody()->__toString());
     }
 
     /**
@@ -55,18 +31,9 @@ class ResponseFactoryTest extends TestCase
     public function canCreateRedirectResponse()
     {
         $response = $this->factory->createRedirectResponse('/foo.bar');
-        $this->assertInstanceOf(\Abava\Http\RedirectResponse::class, $response);
+        $this->assertInstanceOf(\Venta\Http\RedirectResponse::class, $response);
         $this->assertSame('/foo.bar', $response->getHeaderLine('Location'));
         $this->assertSame($response->getStatusCode(), 302);
-    }
-
-    /**
-     * @test
-     */
-    public function canCreateRedirectResponseWithStatus()
-    {
-        $response = $this->factory->createRedirectResponse('/foo.bar', 301);
-        $this->assertSame($response->getStatusCode(), 301);
     }
 
     /**
@@ -83,19 +50,52 @@ class ResponseFactoryTest extends TestCase
     /**
      * @test
      */
-    public function implementsJsonResponseFactoryContract()
+    public function canCreateRedirectResponseWithStatus()
     {
-        $this->assertInstanceOf(\Abava\Http\Contract\JsonResponseFactory::class, $this->factory);
+        $response = $this->factory->createRedirectResponse('/foo.bar', 301);
+        $this->assertSame($response->getStatusCode(), 301);
     }
 
     /**
      * @test
      */
-    public function canCreateJsonResponse()
+    public function canCreateResponse()
     {
-        $data = ['foo' => 'bar'];
-        $response = $this->factory->createJsonResponse($data);
-        $this->assertInstanceOf(\Abava\Http\JsonResponse::class, $response);
-        $this->assertJsonStringEqualsJsonString(json_encode($data), $response->getBody()->__toString());
+        $response = $this->factory->createResponse();
+        $this->assertInstanceOf(\Venta\Http\Response::class, $response);
+        $this->assertSame($response->getStatusCode(), 200);
+    }
+
+    /**
+     * @test
+     */
+    public function canCreateResponseWithStatus()
+    {
+        $response = $this->factory->createResponse(500);
+        $this->assertSame($response->getStatusCode(), 500);
+    }
+
+    /**
+     * @test
+     */
+    public function implementsJsonResponseFactoryContract()
+    {
+        $this->assertInstanceOf(\Venta\Http\Contract\JsonResponseFactory::class, $this->factory);
+    }
+
+    /**
+     * @test
+     */
+    public function implementsRedirectResponseFactoryContract()
+    {
+        $this->assertInstanceOf(\Venta\Http\Contract\RedirectResponseFactory::class, $this->factory);
+    }
+
+    /**
+     * @test
+     */
+    public function implementsResponseFactoryContract()
+    {
+        $this->assertInstanceOf(\Venta\Http\Contract\ResponseFactory::class, $this->factory);
     }
 }

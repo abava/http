@@ -9,6 +9,6 @@ class JsonResponseTest extends TestCase
      */
     public function implementsResponseContract()
     {
-        $this->assertInstanceOf(\Abava\Http\Contract\Response::class, new \Abava\Http\JsonResponse(null));
+        $this->assertInstanceOf(\Venta\Http\Contract\Response::class, new \Venta\Http\JsonResponse(null));
     }
 }

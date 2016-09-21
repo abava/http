@@ -1,14 +1,14 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http;
+namespace Venta\Http;
 
-use Abava\Http\Contract\Response as ResponseContract;
+use Venta\Http\Contract\Response as ResponseContract;
 use Zend\Diactoros\Response\JsonResponse as BaseJsonResponse;
 
 /**
  * Class JsonResponse
  *
- * @package Abava\Http
+ * @package Venta\Http
  */
 class JsonResponse extends BaseJsonResponse implements ResponseContract
 {

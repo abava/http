@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="The Abava Http package tests">
+        <testsuite name="The Venta Http package tests">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
@@ -21,6 +21,6 @@
         </exclude>
     </whitelist>
     <logging>
-        <log type="coverage-html" target="./tests/coverage" charset="UTF-8" yui="true" highlight="true" />
+        <log type="coverage-html" target="./tests/coverage" charset="UTF-8" yui="true" highlight="true"/>
     </logging>
 </phpunit>

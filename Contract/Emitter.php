@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Contract;
+namespace Venta\Http\Contract;
 
 use Zend\Diactoros\Response\EmitterInterface;
 
 /**
  * Interface EmitterContract
  *
- * @package Abava\Http\Contract
+ * @package Venta\Http\Contracts
  */
 interface Emitter extends EmitterInterface
 {

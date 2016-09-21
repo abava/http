@@ -1,20 +1,20 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Factory;
+namespace Venta\Http\Factory;
 
-use Abava\Http\Contract\JsonResponseFactory as JsonResponseFactoryContract;
-use Abava\Http\Contract\RedirectResponseFactory as RedirectResponseFactoryContract;
-use Abava\Http\Contract\Response as ResponseContract;
-use Abava\Http\Contract\ResponseFactory as ResponseFactoryContract;
-use Abava\Http\JsonResponse;
-use Abava\Http\RedirectResponse;
-use Abava\Http\Response;
+use Venta\Http\Contract\JsonResponseFactory as JsonResponseFactoryContract;
+use Venta\Http\Contract\RedirectResponseFactory as RedirectResponseFactoryContract;
+use Venta\Http\Contract\Response as ResponseContract;
+use Venta\Http\Contract\ResponseFactory as ResponseFactoryContract;
+use Venta\Http\JsonResponse;
+use Venta\Http\RedirectResponse;
+use Venta\Http\Response;
 use Zend\Diactoros\Response\JsonResponse as BaseJsonResponse;
 
 /**
  * Class ResponseFactory
  *
- * @package Abava\Http\Factory
+ * @package Venta\Http\Factory
  */
 class ResponseFactory implements
     ResponseFactoryContract,
@@ -24,9 +24,14 @@ class ResponseFactory implements
     /**
      * {@inheritdoc}
      */
-    public function createResponse($code = 200): ResponseContract
+    public function createJsonResponse(
+        $data,
+        $status = 200,
+        array $headers = [],
+        $encodingOptions = BaseJsonResponse::DEFAULT_JSON_FLAGS
+    ): ResponseContract
     {
-        return (new Response)->withStatus($code);
+        return new JsonResponse($data, $status, $headers, $encodingOptions);
     }
 
     /**
@@ -40,13 +45,8 @@ class ResponseFactory implements
     /**
      * {@inheritdoc}
      */
-    public function createJsonResponse(
-        $data,
-        $status = 200,
-        array $headers = [],
-        $encodingOptions = BaseJsonResponse::DEFAULT_JSON_FLAGS
-    ): ResponseContract
+    public function createResponse($code = 200): ResponseContract
     {
-        return new JsonResponse($data, $status, $headers, $encodingOptions);
+        return (new Response)->withStatus($code);
     }
 }

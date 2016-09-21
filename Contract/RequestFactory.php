@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Contract;
+namespace Venta\Http\Contract;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
@@ -8,7 +8,7 @@ use Psr\Http\Message\UriInterface;
 /**
  * Interface RequestFactory
  *
- * @package Abava\Http\Contract
+ * @package Venta\Http\Contracts
  */
 interface RequestFactory
 {

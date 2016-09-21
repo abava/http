@@ -1,14 +1,14 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http;
+namespace Venta\Http;
 
-use Abava\Http\Contract\Response as ResponseContract;
+use Venta\Http\Contract\Response as ResponseContract;
 use Psr\Http\Message\StreamInterface;
 
 /**
  * Class ResponseTrait
  *
- * @package Abava\Http
+ * @package Venta\Http
  * @method StreamInterface getBody()
  */
 trait ResponseTrait
@@ -25,9 +25,10 @@ trait ResponseTrait
 
         return $this;
     }
-    
+
     /**
      * Returns body as a string
+     *
      * @return string
      */
     public function getContent()

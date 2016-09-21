@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Contract;
+namespace Venta\Http\Contract;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
@@ -8,7 +8,7 @@ use Psr\Http\Message\StreamInterface;
 /**
  * Interface ResponseContract
  *
- * @package Abava\Http\Contract
+ * @package Venta\Http\Contracts
  */
 interface Response extends ResponseInterface
 {
@@ -19,30 +19,13 @@ interface Response extends ResponseInterface
      * @return Response
      */
     public function append(string $body): Response;
-    
+
     /**
      * Get body content as plain text
+     *
      * @return string
      */
     public function getContent();
-
-    /**
-     * {@inheritdoc}
-     * @return Response
-     */
-    public function withStatus($code, $reasonPhrase = '');
-
-    /**
-     * {@inheritdoc}
-     * @return Response
-     */
-    public function withProtocolVersion($version);
-
-    /**
-     * {@inheritdoc}
-     * @return Response
-     */
-    public function withHeader($name, $value);
 
     /**
      * {@inheritdoc}
@@ -54,12 +37,30 @@ interface Response extends ResponseInterface
      * {@inheritdoc}
      * @return Response
      */
-    public function withoutHeader($name);
+    public function withBody(StreamInterface $body);
 
     /**
      * {@inheritdoc}
      * @return Response
      */
-    public function withBody(StreamInterface $body);
+    public function withHeader($name, $value);
+
+    /**
+     * {@inheritdoc}
+     * @return Response
+     */
+    public function withProtocolVersion($version);
+
+    /**
+     * {@inheritdoc}
+     * @return Response
+     */
+    public function withStatus($code, $reasonPhrase = '');
+
+    /**
+     * {@inheritdoc}
+     * @return Response
+     */
+    public function withoutHeader($name);
 
 }

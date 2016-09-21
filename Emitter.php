@@ -1,14 +1,14 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http;
+namespace Venta\Http;
 
-use Abava\Http\Contract\Emitter as EmitterContract;
+use Venta\Http\Contract\Emitter as EmitterContract;
 use Zend\Diactoros\Response\SapiEmitter;
 
 /**
  * Class Emitter
  *
- * @package Abava\Http
+ * @package Venta\Http
  */
 class Emitter extends SapiEmitter implements EmitterContract
 {

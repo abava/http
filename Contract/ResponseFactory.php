@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace Abava\Http\Contract;
+namespace Venta\Http\Contract;
 
 /**
  * Interface ResponseFactory
  *
- * @package Abava\Http\Contract
+ * @package Venta\Http\Contracts
  */
 interface ResponseFactory
 {

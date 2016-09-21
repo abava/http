@@ -9,41 +9,13 @@ use Zend\Diactoros\Uri;
 class RequestFactoryTest extends TestCase
 {
     /**
-     * @var \Abava\Http\Factory\RequestFactory
+     * @var \Venta\Http\Factory\RequestFactory
      */
     protected $factory;
 
     public function setUp()
     {
-        $this->factory = new \Abava\Http\Factory\RequestFactory;
-    }
-
-    /**
-     * @test
-     */
-    public function implementsRequestFactoryContract()
-    {
-        $this->assertInstanceOf(\Abava\Http\Contract\RequestFactory::class, new \Abava\Http\Factory\RequestFactory);
-    }
-
-    /**
-     * @test
-     */
-    public function canCreateServerRequestFromGlobals()
-    {
-        $request = $this->factory->createServerRequestFromGlobals();
-        $this->assertInstanceOf(\Abava\Http\Contract\Request::class, $request);
-    }
-
-    /**
-     * @test
-     */
-    public function canCreateServerRequestWithParams()
-    {
-        $request = $this->factory->createServerRequest('GET', '/foo.bar');
-        $this->assertInstanceOf(\Abava\Http\Contract\Request::class, $request);
-        $this->assertSame('GET', $request->getMethod());
-        $this->assertSame('/foo.bar', $request->getUri()->__toString());
+        $this->factory = new \Venta\Http\Factory\RequestFactory;
     }
 
     /**
@@ -53,8 +25,36 @@ class RequestFactoryTest extends TestCase
     {
         $uri = new Uri('/foo.bar');
         $request = $this->factory->createServerRequest('GET', $uri);
-        $this->assertInstanceOf(\Abava\Http\Contract\Request::class, $request);
+        $this->assertInstanceOf(\Venta\Http\Contract\Request::class, $request);
         $this->assertSame('GET', $request->getMethod());
         $this->assertSame($uri, $request->getUri());
+    }
+
+    /**
+     * @test
+     */
+    public function canCreateServerRequestFromGlobals()
+    {
+        $request = $this->factory->createServerRequestFromGlobals();
+        $this->assertInstanceOf(\Venta\Http\Contract\Request::class, $request);
+    }
+
+    /**
+     * @test
+     */
+    public function canCreateServerRequestWithParams()
+    {
+        $request = $this->factory->createServerRequest('GET', '/foo.bar');
+        $this->assertInstanceOf(\Venta\Http\Contract\Request::class, $request);
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame('/foo.bar', $request->getUri()->__toString());
+    }
+
+    /**
+     * @test
+     */
+    public function implementsRequestFactoryContract()
+    {
+        $this->assertInstanceOf(\Venta\Http\Contract\RequestFactory::class, new \Venta\Http\Factory\RequestFactory);
     }
 }

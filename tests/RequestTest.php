@@ -12,7 +12,7 @@ class RequestTest extends TestCase
      */
     public function implementsRequestContract()
     {
-        $this->assertInstanceOf(\Abava\Http\Contract\Request::class, new \Abava\Http\Request);
+        $this->assertInstanceOf(\Venta\Http\Contract\Request::class, new \Venta\Http\Request);
     }
 
 }
