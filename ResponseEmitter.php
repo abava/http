@@ -2,7 +2,7 @@
 
 namespace Venta\Http;
 
-use Venta\Http\Contract\Emitter as EmitterContract;
+use Venta\Contracts\Http\ResponseEmitter as ResponseEmitterContract;
 use Zend\Diactoros\Response\SapiEmitter;
 
 /**
@@ -10,6 +10,6 @@ use Zend\Diactoros\Response\SapiEmitter;
  *
  * @package Venta\Http
  */
-class Emitter extends SapiEmitter implements EmitterContract
+class ResponseEmitter extends SapiEmitter implements ResponseEmitterContract
 {
 }
